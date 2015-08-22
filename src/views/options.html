@@ -1,0 +1,30 @@
+<template>
+  <require from='slider'></require>
+  <section class="au-animate" for="options">
+    <h6>Options</h6>
+    <article>
+      <form role="form" submit.delegate="onSubmit()">
+        <div class="row">
+          <div class="large-6 columns">
+            <slider value.two-way="model.onlineAttackSpeed"
+              label="Online attack speed (guesses per second)"
+              min="0"
+              max="10000"
+              step="500"
+              change.call="sliderChanged()"
+              id="onlineAttackSpeed">
+          </div>
+          <div class="large-6 columns">
+            <slider value.two-way="model.offlineAttackSpeed"
+              label="Offline attack speed (billion guesses tacks per second)"
+              min="0"
+              max="10000"
+              step="100"
+              change.call="sliderChanged()"
+              id="offlineAttackSpeed">
+          </div>
+        </div>
+      </form>
+    </article>
+  </section>
+</template>

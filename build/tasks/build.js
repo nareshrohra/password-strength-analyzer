@@ -20,7 +20,7 @@ gulp.task('build-system', function () {
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(to5(assign({}, compilerOptions, {modules:'system'})))
     .pipe(sourcemaps.write({includeContent: true}))
-    .pipe(flatten())
+    //.pipe(flatten())
     .pipe(gulp.dest(paths.output));
 });
 
@@ -28,7 +28,7 @@ gulp.task('build-system', function () {
 gulp.task('build-html', function () {
   return gulp.src(paths.html)
     .pipe(changed(paths.output, {extension: '.html'}))
-    .pipe(flatten())
+    //.pipe(flatten())
     .pipe(gulp.dest(paths.output));
 });
 

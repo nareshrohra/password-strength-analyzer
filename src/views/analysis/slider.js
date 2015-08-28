@@ -8,7 +8,7 @@ import 'foundation/js/foundation/foundation.slider';
 import {
   BaseView
 }
-from './base-view';
+from '../base-view';
 
 export class Slider extends BaseView {
   @bindable id;

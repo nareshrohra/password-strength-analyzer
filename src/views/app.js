@@ -5,7 +5,7 @@ export class App {
   configureRouter(config, router) {
     config.title = 'Password Strength Analyzer';
     config.map([
-      { route: ['', 'analysis'], name: 'analysis', moduleId: 'analysis', nav: false, title:'' }
+      { route: ['', 'analysis'], name: 'analysis', moduleId: './analysis/index', nav: false, title:'' }
     ]);
     this.router = router;
   }

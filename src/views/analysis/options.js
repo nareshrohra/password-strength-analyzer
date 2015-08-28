@@ -5,7 +5,7 @@ from 'aurelia-framework';
 import {
   BaseView
 }
-from './base-view';
+from '../base-view';
 
 export class Options extends BaseView {
   @bindable model;

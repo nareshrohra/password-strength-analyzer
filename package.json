@@ -9,9 +9,7 @@
     "brute-force"
   ],
   "homepage": "",
-  "bugs": {
-
-  },
+  "bugs": {},
   "license": "MIT",
   "author": "Naresh Rohra <naresh.rohra@hotmail.com> (http://nareshrohra.com/)",
   "main": "dist/commonjs/index.js",

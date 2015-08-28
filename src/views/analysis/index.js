@@ -1,5 +1,5 @@
 import {
-  Options, OptionsModel
+  OptionsModel
 }
 from './options';
 
@@ -11,9 +11,9 @@ from './results';
 import {
   BruteForceAnalyzer
 }
-from './services/analyzers/brute-force-analyzer';
+from '../../services/analyzers/brute-force-analyzer';
 
-export class Analysis {
+export class Index {
   password = '';
   analyzers = [new BruteForceAnalyzer()];
   options = new OptionsModel(1000, 100);

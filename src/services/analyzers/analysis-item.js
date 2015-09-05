@@ -1,12 +1,7 @@
 import {
-  NumberFormatter
+  NumberTranslator
 }
-from '../formatters/number-formatter';
-
-import {
-  TimeFormatter
-}
-from '../formatters/time-formatter';
+from 'vaow';
 
 export class AnalysisItem {
   constructor(name, value) {
@@ -14,12 +9,12 @@ export class AnalysisItem {
     this.value = this.text = value;
   }
 
-  setFormatter(formatter) {
-    this.formatter = formatter;
+  setTranslator(translator) {
+    this.translator = translator;
   }
 
-  setFormattedText() {
-    this.text = this.formatter.getFormattedText(this.value);
+  setTranslationText() {
+    this.text = this.translator.translate(this.value);
   }
 
   getName() {
@@ -34,15 +29,15 @@ export class AnalysisItem {
 export class TimeAnalysisItem extends AnalysisItem {
   constructor(name, seconds) {
     super(name, seconds);
-    this.setFormatter(TimeFormatter.getInstance());
-    this.setFormattedText();
+    this.setTranslator(window.vaow.TimeTranslator.getInstance());
+    this.setTranslationText();
   }
 }
 
 export class NumberAnalysisItem extends AnalysisItem {
   constructor(name, number) {
     super(name, number);
-    this.setFormatter(NumberFormatter.getInstance());
-    this.setFormattedText();
+    this.setTranslator(window.vaow.NumberTranslator.getInstance());
+    this.setTranslationText();
   }
 }

@@ -9,10 +9,12 @@
     "brute-force"
   ],
   "homepage": "",
-  "bugs": {},
+  "bugs": {
+    "url": "https://github.com/nareshrohra/password-strength-analyzer/issues"
+  },
   "license": "MIT",
   "author": "Naresh Rohra <naresh.rohra@hotmail.com> (http://nareshrohra.com/)",
-  "main": "dist/commonjs/index.js",
+  "main": "",
   "repository": {
     "type": "git",
     "url": "https://github.com/nareshrohra/password-strength-analyzer"
@@ -77,7 +79,8 @@
       "fetch": "github:github/fetch@^0.9.0",
       "font-awesome": "npm:font-awesome@^4.3.0",
       "foundation": "github:zurb/bower-foundation@^5.5.2",
-      "jquery": "github:components/jquery@^2.1.4"
+      "jquery": "github:components/jquery@^2.1.4",
+      "nareshrohra/vaow": "github:nareshrohra/vaow@master"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.1.13",
@@ -87,6 +90,14 @@
     "overrides": {
       "npm:core-js@0.9.18": {
         "main": "client/shim.min"
+      },
+      "github:nareshrohra/vaow@master": {
+        "main": "dist/vaow.js",
+        "shim": {
+          "nareshrohra/vaow": [
+            "vaow"
+          ]
+        }
       }
     }
   }

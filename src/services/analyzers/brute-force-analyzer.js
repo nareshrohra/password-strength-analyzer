@@ -28,11 +28,10 @@ export class BruteForceAnalyzer {
 
     var searchSpaceSize = this.calculateSearchSpaceSize(searchSpaceDepth, searchSpaceLength)
 
-    this.calculateCrackTime(searchSpaceSize);
-
-    this.analysis.setSearchSpaceDepth(searchSpaceDepth);
     this.analysis.setSearchSpaceLength(searchSpaceLength);
+    this.analysis.setSearchSpaceDepth(searchSpaceDepth);
     this.analysis.setSearchSpaceSize(searchSpaceSize);
+    this.calculateCrackTime(searchSpaceSize);
   }
 
   calculateSearchSpaceSize(spaceDepth, spaceLength) {

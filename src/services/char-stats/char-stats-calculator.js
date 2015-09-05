@@ -7,6 +7,14 @@ import {
 }
 from './upper-case-alphabets-stats-calculator';
 import {
+  NumbersStatsCalculator
+}
+from './numbers-stats-calculator';
+import {
+  SpecialCharStatsCalculator
+}
+from './special-char-stats-calculator';
+import {
   CharStats
 }
 from './char-stats';
@@ -17,7 +25,12 @@ from './aggregate-char-stats';
 
 export class CharStatsCalculator {
   constructor() {
-    this.statsCalculators = [new LowerCaseAlphabetsStatsCalculator(), new UpperCaseAlphabetsStatsCalculator()];
+    this.statsCalculators = [
+      new LowerCaseAlphabetsStatsCalculator(),
+      new UpperCaseAlphabetsStatsCalculator(),
+      new NumbersStatsCalculator(),
+      new SpecialCharStatsCalculator()
+    ];
   }
 
   getStats(text) {

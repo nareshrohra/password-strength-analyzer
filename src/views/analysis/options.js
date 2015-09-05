@@ -36,6 +36,6 @@ export class OptionsModel {
   }
 
   getOfflineAttackSpeed() {
-    return this.offlineAttackSpeed;
+    return this.offlineAttackSpeed * Math.pow(10, 9);
   }
 }

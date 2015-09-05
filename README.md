@@ -5,6 +5,7 @@ Analyse the strength of the password against a brute force attack
 
 1. Clone the repository
 2. npm install
+3. jspm install
 3. gulp watch
 
 *Apologies! the installation steps are not verified*

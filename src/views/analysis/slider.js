@@ -24,8 +24,7 @@ export class Slider extends BaseView {
     let slider = $('#' + this.id);
     let input = slider.find('input[type="hidden"]');
     slider.on('change.fndtn.slider', function() {
-      //TODO: fix this
-      //this.value = input.val();
+      self.value = parseInt(input.val());
       console.log(self.value);
       self.raiseChange();
     });

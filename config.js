@@ -47,7 +47,9 @@ System.config({
     "font-awesome": "npm:font-awesome@4.4.0",
     "foundation": "github:zurb/bower-foundation@5.5.2",
     "jquery": "github:components/jquery@2.1.4",
+    "nareshrohra/vaow": "github:nareshrohra/vaow@master",
     "vaow": "github:nareshrohra/vaow@master",
+    "zxcvbn": "github:dropbox/zxcvbn@3.3.0",
     "github:aurelia/animator-css@0.15.0": {
       "aurelia-metadata": "github:aurelia/metadata@0.7.3",
       "aurelia-templating": "github:aurelia/templating@0.14.4"

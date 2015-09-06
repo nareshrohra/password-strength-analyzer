@@ -9,13 +9,13 @@ import {
 from './results';
 
 import {
-  BruteForceAnalyzer
+  FullAnalyzer
 }
-from '../../services/analyzers/brute-force-analyzer';
+from '../../services/analysis/analyzers/full-analyzer/analyzer';
 
 export class Index {
   password = '';
-  analyzers = [new BruteForceAnalyzer()];
+  analyzer = new FullAnalyzer();
   options = new OptionsModel(1000, 100);
   results = null;
 
@@ -46,12 +46,8 @@ export class Index {
 
   getAllAnalysis() {
     let results = new ResultsModel(),
-      analyzersCount = this.analyzers.length,
-      analysis;
-    for (let i = 0; i < analyzersCount; i++) {
-      analysis = this.analyzers[i].getAnalysis(this.password, this.options);
-      results.addAnalysis(analysis);
-    }
+      analyses = this.analyzer.getAnalyses(this.password, this.options);
+    results.addAnalyses(analyses);
     return results;
   }
 }

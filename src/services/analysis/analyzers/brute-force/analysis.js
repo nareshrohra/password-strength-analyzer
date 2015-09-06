@@ -1,12 +1,12 @@
 import {
   AnalysisBase
 }
-from './analysis-base';
+from '../../analysis-base';
 
 import {
   AnalysisItem, TimeAnalysisItem, NumberAnalysisItem
 }
-from './analysis-item';
+from '../../analysis-item';
 
 export class BruteForceAnalysis extends AnalysisBase {
   constructor() {

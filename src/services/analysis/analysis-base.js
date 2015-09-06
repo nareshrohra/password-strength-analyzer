@@ -13,7 +13,7 @@ export class AnalysisBase {
   getName() {
     return this.name;
   }
-
+  
   addAnalysisItem(analysisItem) {
     this.analysisItems.push(analysisItem);
   }

@@ -1,11 +1,11 @@
 import {
   CharStatsCalculator
 }
-from '../char-stats/char-stats-calculator';
+from '../../../char-stats/char-stats-calculator';
 import {
   BruteForceAnalysis
 }
-from '../analyzers/brute-force-analysis';
+from './analysis';
 
 export class BruteForceAnalyzer {
   analysis = null;

@@ -6,6 +6,10 @@ import {
   BruteForceAnalysis
 }
 from './analysis';
+import {
+  CryptoMath
+}
+from '../../../Util/crypto-math';
 
 export class BruteForceAnalyzer {
   analysis = null;
@@ -35,7 +39,7 @@ export class BruteForceAnalyzer {
   }
 
   calculateSearchSpaceSize(spaceDepth, spaceLength) {
-    return Math.pow(spaceDepth, spaceLength);
+    return CryptoMath.caculateSearchSpaceSize(spaceDepth, spaceLength);
   }
 
   calculateCrackTime(searchSpaceSize) {

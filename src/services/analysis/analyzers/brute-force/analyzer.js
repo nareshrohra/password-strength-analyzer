@@ -31,11 +31,12 @@ export class BruteForceAnalyzer {
       searchSpaceLength = this.password.length;
 
     var searchSpaceSize = this.calculateSearchSpaceSize(searchSpaceDepth, searchSpaceLength)
-
+    this.analysis.setCharStats(charStats);
     this.analysis.setSearchSpaceLength(searchSpaceLength);
     this.analysis.setSearchSpaceDepth(searchSpaceDepth);
     this.analysis.setSearchSpaceSize(searchSpaceSize);
     this.calculateCrackTime(searchSpaceSize);
+    this.analysis.build();
   }
 
   calculateSearchSpaceSize(spaceDepth, spaceLength) {
@@ -44,10 +45,10 @@ export class BruteForceAnalyzer {
 
   calculateCrackTime(searchSpaceSize) {
     let onlineTime = this.getCrackTimeForSearchSizeAndSpeed(searchSpaceSize, this.options.getOnlineAttackSpeed());
-    this.analysis.setOnlineAttackCrackTime(onlineTime);
+    this.analysis.setOnlineAttackCrackTime(onlineTime, this.options.getOnlineAttackSpeed());
 
     let offlineTime = this.getCrackTimeForSearchSizeAndSpeed(searchSpaceSize, this.options.getOfflineAttackSpeed());
-    this.analysis.setOfflineAttackCrackTime(offlineTime);
+    this.analysis.setOfflineAttackCrackTime(offlineTime, this.options.getOfflineAttackSpeed());
   }
 
   getCrackTimeForSearchSizeAndSpeed(searchSpaceSize, speed) {

@@ -11,10 +11,18 @@
         <tbody>
           <tr repeat.for="item of analysis.getAllItems()">
             <td class="analysis-item-name">
-              ${item.getName()}
+              <div>${item.getName()}</div>
+              <div show.bind="item.hasNameHint()">
+                <span class="radius secondary label">${item.getNameHint()}</span>
+              </div>
             </td>
             <td class="analysis-item-value">
-              ${item.getText()}
+              <div>
+                <h6>${item.getText()}</h6>
+              </div>
+              <div show.bind="item.hasTextHint()">
+                <span class="radius secondary label">${item.getTextHint()}</span>
+              </div>
             </td>
           </tr>
         </tbody>

@@ -25,7 +25,6 @@ export class Slider extends BaseView {
     let input = slider.find('input[type="hidden"]');
     slider.on('change.fndtn.slider', function() {
       self.value = parseInt(input.val());
-      console.log(self.value);
       self.raiseChange();
     });
   }

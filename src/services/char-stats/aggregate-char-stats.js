@@ -9,6 +9,10 @@ export class AggregateCharStats extends CharStats {
     super(name, 0, 0);
   }
 
+  getAllStats(){
+    return this.subStats;
+  }
+
   addStats(charStats) {
     this.subStats.push(charStats);
     this.updateAggregate(charStats);

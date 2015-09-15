@@ -3,10 +3,7 @@ import {
 }
 from './char-stats';
 
-import {
-  Validator
-}
-from '../util/validator';
+import vaow from 'vaow';
 
 import {
   Locale
@@ -17,7 +14,7 @@ export class UpperCaseAlphabetsStatsCalculator {
   pattern = new RegExp(/[ABCDEFGHIJKLMNOPQRSTUVWXYZ]/g);
 
   getStats(text) {
-    if (Validator.isDefinedAndNotNull(text)) {
+    if (window.vaow.Validator.isDefinedAndNotNull(text)) {
       let matches = text.match(this.pattern);
       let count = matches !== null ? matches.length : 0;
       return new CharStats('upper-case', count, UpperCaseAlphabetsStatsCalculator.CharDepth);

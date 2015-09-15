@@ -3,10 +3,7 @@ import {
 }
 from './char-stats';
 
-import {
-  Validator
-}
-from '../util/validator';
+import vaow from 'vaow';
 
 import {
   Locale
@@ -24,7 +21,7 @@ export class AggregateCharStats extends CharStats {
   }
 
   addStats(charStats) {
-    if (Validator.isDefinedAndNotNull(charStats)) {
+    if (window.vaow.Validator.isDefinedAndNotNull(charStats)) {
       this.subStats.push(charStats);
       this.updateAggregate(charStats);
     } else {

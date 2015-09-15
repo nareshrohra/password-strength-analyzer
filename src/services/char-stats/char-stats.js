@@ -1,7 +1,4 @@
-import {
-  Validator
-}
-from '../util/validator';
+import vaow from 'vaow';
 
 import {
   Locale
@@ -18,15 +15,15 @@ export class CharStats {
   }
 
   validate(name, matchCount, charDepth) {
-    if (!Validator.isDefinedAndNotNull(name)) {
+    if (!window.vaow.Validator.isDefinedAndNotNull(name)) {
       throw Locale.Error.InvalidArgName;
     }
 
-    if (!Validator.isPositiveNumber(matchCount)) {
+    if (!window.vaow.Validator.isPositiveNumber(matchCount)) {
       throw Locale.Error.InvalidArgMatchCount;
     }
 
-    if (!Validator.isPositiveNumber(charDepth)) {
+    if (!window.vaow.Validator.isPositiveNumber(charDepth)) {
       throw Locale.Error.InvalidArgCharDepth;
     }
   }

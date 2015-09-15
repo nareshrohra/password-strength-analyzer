@@ -45,23 +45,24 @@ export class BruteForceAnalysis extends AnalysisBase {
   build() {
     this.addAnalysisItem(new NumberAnalysisItem("Search space length", this.searchSpaceLength, '', this.searchSpaceLength + ' characters'));
 
-    this.addAnalysisItem(new NumberAnalysisItem("Search space depth", this.searchSpaceDepth, '', this.getDepthValueHint()));
+    this.addAnalysisItem(new NumberAnalysisItem("Search space depth", this.searchSpaceDepth, 'number of guesses for each character', this.getDepthValueHint()));
 
-    this.addAnalysisItem(new NumberAnalysisItem("Search space size", this.searchSpaceSize, '', this.getSizeValueHint()));
+    this.addAnalysisItem(new NumberAnalysisItem("Search space size", this.searchSpaceSize, 'total guesses to attempt', this.getSizeValueHint()));
 
-    let onlineAttackNameHint = this.numberTranslator.translate(this.onlineAttackSpeed) + ' guesses per second';
+    let onlineAttackNameHint = 'with ' + this.numberTranslator.translate(this.onlineAttackSpeed) + ' guesses per second';
     this.addAnalysisItem(new TimeAnalysisItem("Online attack crack time", this.onlineAttackCrackTime, onlineAttackNameHint, ''));
 
-    let offlineAttackNameHint = this.numberTranslator.translate(this.offlineAttackSpeed) + ' guesses per second';
+    let offlineAttackNameHint = 'with ' + this.numberTranslator.translate(this.offlineAttackSpeed) + ' guesses per second';
     this.addAnalysisItem(new TimeAnalysisItem("Offline attack crack time", this.offlineAttackCrackTime, offlineAttackNameHint, ''));
   }
 
   getDepthValueHint() {
     let hint = '';
-    let charStatsCount = this.charStats.length;
+    let allCharStats = this.charStats.getAllStats();
+    let charStatsCount = allCharStats.length;
     for (let i = 0; i < charStatsCount; i++) {
-      if(this.charStats[i].getMatchCount() > 0 ) {
-        hint += (hint !== '' ? ' + ' : '') + this.CharStats[i].getCharDepth();
+      if(allCharStats[i].getMatchCount() > 0 ) {
+        hint += (hint !== '' ? ' + ' : '') + allCharStats[i].getCharDepth() + ' (' + allCharStats[i].getName() + ')';
       }
     }
     return hint;

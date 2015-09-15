@@ -11,9 +11,9 @@ import {
 }
 from './numbers-stats-calculator';
 import {
-  SpecialCharStatsCalculator
+  SpecialCaseStatsCalculator
 }
-from './special-char-stats-calculator';
+from './special-case-stats-calculator';
 import {
   CharStats
 }
@@ -29,7 +29,7 @@ export class CharStatsCalculator {
       new LowerCaseAlphabetsStatsCalculator(),
       new UpperCaseAlphabetsStatsCalculator(),
       new NumbersStatsCalculator(),
-      new SpecialCharStatsCalculator()
+      new SpecialCaseStatsCalculator()
     ];
   }
 

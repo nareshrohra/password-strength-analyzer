@@ -2,14 +2,16 @@ import {
   CharStatsCalculator
 }
 from '../../../char-stats/char-stats-calculator';
+
 import {
   BruteForceAnalysis
 }
 from './analysis';
+
 import {
   CryptoMath
 }
-from '../../../Util/crypto-math';
+from '../../../util/crypto-math';
 
 export class BruteForceAnalyzer {
   analysis = null;

@@ -46,7 +46,7 @@ export class Index {
 
   getAllAnalysis() {
     let results = new ResultsModel(),
-      analyses = this.analyzer.getAnalyses(this.password, this.options);
+      analyses = this.analyzer.getAnalysis(this.password, this.options);
     results.addAnalyses(analyses);
     return results;
   }

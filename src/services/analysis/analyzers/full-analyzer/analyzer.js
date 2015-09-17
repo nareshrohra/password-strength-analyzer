@@ -1,3 +1,10 @@
+import vaow from 'vaow';
+
+import {
+  Locale
+}
+from '../../../../locale';
+
 import {
   BruteForceAnalyzer
 }
@@ -16,15 +23,30 @@ export class CompositeAnalyzer {
   }
 
   addAnalyzer(analyzer) {
-    this.analyzers.push(analyzer);
+    if (window.vaow.Validator.isDefinedAndNotNull(analyzer)) {
+      this.analyzers.push(analyzer);
+    } else {
+      throw Locale.Error.InvalidArgAnalyzer;
+    }
   }
 
-  getAnalyses(pwd, options) {
-    this.password = pwd;
+  getAnalysis(password, options) {
+    this.validateAnalysisInput(password, options);
+    this.password = password;
     this.options = options;
     this.analyses.length = 0;
     this.analyze();
     return this.analyses;
+  }
+
+  validateAnalysisInput(password, options) {
+    if (!window.vaow.Validator.isDefinedAndNotNull(password)) {
+      throw Locale.Error.InvalidArgPassword;
+    }
+
+    if (!window.vaow.Validator.isDefinedAndNotNull(options)) {
+      throw Locale.Error.InvalidArgOptions;
+    }
   }
 
   analyze() {

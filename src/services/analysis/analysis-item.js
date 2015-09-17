@@ -1,11 +1,27 @@
+import {
+  Locale
+}
+from '../../locale';
+
 import vaow from 'vaow';
 
 export class AnalysisItem {
   constructor(name, value, nameHint, valueHint) {
+    this.validate(name, value);
     this.name = name;
     this.value = this.text = value;
     this.nameHint = nameHint;
     this.valueHint = valueHint;
+  }
+
+  validate(name, value) {
+    if(!window.vaow.Validator.isDefinedAndNotNull(name)) {
+      throw Locale.Error.InvalidArgName;
+    }
+
+    if(!window.vaow.Validator.isDefinedAndNotNull(value)) {
+      throw Locale.Error.InvalidArgValue;
+    }
   }
 
   setTranslator(translator) {

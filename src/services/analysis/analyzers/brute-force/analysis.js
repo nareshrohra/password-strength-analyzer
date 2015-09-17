@@ -1,6 +1,11 @@
 import vaow from 'vaow';
 
 import {
+  Locale
+}
+from '../../../../locale';
+
+import {
   AnalysisBase
 }
 from '../../analysis-base';
@@ -13,33 +18,61 @@ from '../../analysis-item';
 export class BruteForceAnalysis extends AnalysisBase {
   numberTranslator = window.vaow.NumberTranslator.getInstance();
   constructor() {
-    super('Brute force analysis');
+    super(Locale.BruteForceAnalysisName);
   }
 
   setCharStats(charStats) {
-    this.charStats = charStats;
+    if (window.vaow.Validator.isDefinedAndNotNull(charStats)) {
+      this.charStats = charStats;
+    } else {
+      throw Locale.Error.InvalidArgCharStats;
+    }
   }
 
   setSearchSpaceDepth(depth) {
-    this.searchSpaceDepth = depth;
+    if (window.vaow.Validator.isPositiveNumber(depth)) {
+      this.searchSpaceDepth = depth;
+    } else {
+      throw Locale.Error.InvalidArgDepth;
+    }
   }
 
   setSearchSpaceLength(length) {
-    this.searchSpaceLength = length;
+    if (window.vaow.Validator.isPositiveNumber(length)) {
+      this.searchSpaceLength = length;
+    } else {
+      throw Locale.Error.InvalidArgLength;
+    }
   }
 
   setSearchSpaceSize(size) {
-    this.searchSpaceSize = size;
+    if (window.vaow.Validator.isPositiveNumber(size)) {
+      this.searchSpaceSize = size;
+    } else {
+      throw Locale.Error.InvalidArgSize;
+    }
   }
 
   setOnlineAttackCrackTime(time, attackSpeed) {
+    this.validateCrackTime(time, attackSpeed);
     this.onlineAttackCrackTime = time;
     this.onlineAttackSpeed = attackSpeed;
   }
 
   setOfflineAttackCrackTime(time, attackSpeed) {
+    this.validateCrackTime(time, attackSpeed);
     this.offlineAttackCrackTime = time;
     this.offlineAttackSpeed = attackSpeed;
+  }
+
+  validateCrackTime(time, attackSpeed) {
+    if (!window.vaow.Validator.isPositiveNumber(time)) {
+      throw Locale.Error.InvalidArgTime;
+    }
+
+    if (!window.vaow.Validator.isPositiveNumber(attackSpeed)) {
+      throw Locale.Error.InvalidArgAttackSpeed;
+    }
   }
 
   build() {
@@ -61,7 +94,7 @@ export class BruteForceAnalysis extends AnalysisBase {
     let allCharStats = this.charStats.getAllStats();
     let charStatsCount = allCharStats.length;
     for (let i = 0; i < charStatsCount; i++) {
-      if(allCharStats[i].getMatchCount() > 0 ) {
+      if (allCharStats[i].getMatchCount() > 0) {
         hint += (hint !== '' ? ' + ' : '') + allCharStats[i].getCharDepth() + ' (' + allCharStats[i].getName() + ')';
       }
     }

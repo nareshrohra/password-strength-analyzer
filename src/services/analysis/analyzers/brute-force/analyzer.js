@@ -1,3 +1,10 @@
+import vaow from 'vaow';
+
+import {
+  Locale
+}
+from '../../../../locale';
+
 import {
   CharStatsCalculator
 }
@@ -16,23 +23,34 @@ from '../../../util/crypto-math';
 export class BruteForceAnalyzer {
   analysis = null;
 
-  constructor() {
-  }
+  constructor() {}
 
-  getAnalysis(pwd, options) {
-    this.password = pwd;
+  getAnalysis(password, options) {
+    this.validateAnalysisInput(password, options);
+    this.password = password;
     this.options = options;
     this.analyze();
     return this.analysis;
   }
 
+  validateAnalysisInput(password, options) {
+    if (!window.vaow.Validator.isDefinedAndNotNull(password)) {
+      throw Locale.Error.InvalidArgPassword;
+    }
+
+    if (!window.vaow.Validator.isDefinedAndNotNull(options)) {
+      throw Locale.Error.InvalidArgOptions;
+    }
+  }
+
   analyze() {
     this.analysis = new BruteForceAnalysis();
     let charStats = new CharStatsCalculator().getStats(this.password);
+
     let searchSpaceDepth = charStats.getCharDepth(),
       searchSpaceLength = this.password.length;
+    let searchSpaceSize = this.calculateSearchSpaceSize(searchSpaceDepth, searchSpaceLength);
 
-    var searchSpaceSize = this.calculateSearchSpaceSize(searchSpaceDepth, searchSpaceLength)
     this.analysis.setCharStats(charStats);
     this.analysis.setSearchSpaceLength(searchSpaceLength);
     this.analysis.setSearchSpaceDepth(searchSpaceDepth);

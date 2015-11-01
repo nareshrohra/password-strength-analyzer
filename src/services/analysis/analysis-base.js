@@ -14,7 +14,7 @@ export class AnalysisBase {
   analysisItems = [];
 
   constructor(name) {
-    if (window.vaow.Validator.isDefinedAndNotNull(name)) {
+    if (window.vaow.util.Validator.isDefinedAndNotNull(name)) {
       this.name = name;
     } else {
       throw Locale.Error.InvalidArgName;
@@ -26,7 +26,7 @@ export class AnalysisBase {
   }
 
   addAnalysisItem(analysisItem) {
-    if (window.vaow.Validator.isDefinedAndNotNull(analysisItem)) {
+    if (window.vaow.util.Validator.isDefinedAndNotNull(analysisItem)) {
       this.analysisItems.push(analysisItem);
     } else {
       throw Locale.Error.InvalidArgAnalysisItem;

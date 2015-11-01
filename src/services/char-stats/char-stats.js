@@ -15,15 +15,15 @@ export class CharStats {
   }
 
   validate(name, matchCount, charDepth) {
-    if (!window.vaow.Validator.isDefinedAndNotNull(name)) {
+    if (!window.vaow.util.Validator.isDefinedAndNotNull(name)) {
       throw Locale.Error.InvalidArgName;
     }
 
-    if (!window.vaow.Validator.isPositiveNumber(matchCount)) {
+    if (!window.vaow.util.Validator.isPositiveNumber(matchCount)) {
       throw Locale.Error.InvalidArgMatchCount;
     }
 
-    if (!window.vaow.Validator.isPositiveNumber(charDepth)) {
+    if (!window.vaow.util.Validator.isPositiveNumber(charDepth)) {
       throw Locale.Error.InvalidArgCharDepth;
     }
   }

@@ -18,7 +18,7 @@ export class ZxcvbnAnalyzer {
   constructor() {}
 
   getAnalysis(password, options) {
-    if (window.vaow.Validator.isDefinedAndNotNull(password)) {
+    if (window.vaow.util.Validator.isDefinedAndNotNull(password)) {
       this.password = password;
       this.analyze();
       return this.analysis;

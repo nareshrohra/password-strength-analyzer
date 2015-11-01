@@ -14,7 +14,7 @@ export class LowerCaseAlphabetsStatsCalculator {
   pattern = new RegExp(/[abcdefghijklmnopqrstuvwxyz]/g);
 
   getStats(text) {
-    if (window.vaow.Validator.isDefinedAndNotNull(text)) {
+    if (window.vaow.util.Validator.isDefinedAndNotNull(text)) {
       let matches = text.match(this.pattern);
       let count = matches !== null ? matches.length : 0;
       return new CharStats(Locale.LowerCaseAlphabetStatsName, count, LowerCaseAlphabetsStatsCalculator.CharDepth);

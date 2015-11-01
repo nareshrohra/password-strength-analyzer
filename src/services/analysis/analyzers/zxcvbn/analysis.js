@@ -21,7 +21,7 @@ export class ZxcvbnAnalysis extends AnalysisBase {
   }
 
   setEntropy(entropy) {
-    if (window.vaow.Validator.isPositiveNumber(entropy)) {
+    if (window.vaow.util.Validator.isPositiveNumber(entropy)) {
       this.addAnalysisItem(new NumberAnalysisItem("Entropy", entropy));
     } else {
       throw Locale.Error.InvalidArgEntropy;
@@ -29,7 +29,7 @@ export class ZxcvbnAnalysis extends AnalysisBase {
   }
 
   setScore(score) {
-    if (window.vaow.Validator.isPositiveNumber(score)) {
+    if (window.vaow.util.Validator.isPositiveNumber(score)) {
       this.addAnalysisItem(new NumberAnalysisItem("Score", score));
     } else {
       throw Locale.Error.InvalidArgScore;

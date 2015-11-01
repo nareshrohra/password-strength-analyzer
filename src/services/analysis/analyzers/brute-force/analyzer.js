@@ -34,11 +34,11 @@ export class BruteForceAnalyzer {
   }
 
   validateAnalysisInput(password, options) {
-    if (!window.vaow.Validator.isDefinedAndNotNull(password)) {
+    if (!window.vaow.util.Validator.isDefinedAndNotNull(password)) {
       throw Locale.Error.InvalidArgPassword;
     }
 
-    if (!window.vaow.Validator.isDefinedAndNotNull(options)) {
+    if (!window.vaow.util.Validator.isDefinedAndNotNull(options)) {
       throw Locale.Error.InvalidArgOptions;
     }
   }

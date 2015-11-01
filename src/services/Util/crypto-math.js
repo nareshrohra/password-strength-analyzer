@@ -7,11 +7,11 @@ from '../../locale';
 
 export class CryptoMath {
   static caculateSearchSpaceSize(depth, length) {
-    if (!window.vaow.Validator.isNonZeroPositiveNumber(depth)) {
+    if (!window.vaow.util.Validator.isNonZeroPositiveNumber(depth)) {
       throw Locale.Error.InvalidArgDepth;
     }
 
-    if (!window.vaow.Validator.isNonZeroPositiveNumber(length)) {
+    if (!window.vaow.util.Validator.isNonZeroPositiveNumber(length)) {
       throw Locale.Error.InvalidArgLength;
     }
 

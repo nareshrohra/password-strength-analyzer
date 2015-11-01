@@ -16,13 +16,13 @@ import {
 from '../../analysis-item';
 
 export class BruteForceAnalysis extends AnalysisBase {
-  numberTranslator = window.vaow.NumberTranslator.getInstance();
+  numberTranslator = new window.vaow.NumberTranslator();
   constructor() {
     super(Locale.BruteForceAnalysisName);
   }
 
   setCharStats(charStats) {
-    if (window.vaow.Validator.isDefinedAndNotNull(charStats)) {
+    if (window.vaow.util.Validator.isDefinedAndNotNull(charStats)) {
       this.charStats = charStats;
     } else {
       throw Locale.Error.InvalidArgCharStats;
@@ -30,7 +30,7 @@ export class BruteForceAnalysis extends AnalysisBase {
   }
 
   setSearchSpaceDepth(depth) {
-    if (window.vaow.Validator.isPositiveNumber(depth)) {
+    if (window.vaow.util.Validator.isPositiveNumber(depth)) {
       this.searchSpaceDepth = depth;
     } else {
       throw Locale.Error.InvalidArgDepth;
@@ -38,7 +38,7 @@ export class BruteForceAnalysis extends AnalysisBase {
   }
 
   setSearchSpaceLength(length) {
-    if (window.vaow.Validator.isPositiveNumber(length)) {
+    if (window.vaow.util.Validator.isPositiveNumber(length)) {
       this.searchSpaceLength = length;
     } else {
       throw Locale.Error.InvalidArgLength;
@@ -46,7 +46,7 @@ export class BruteForceAnalysis extends AnalysisBase {
   }
 
   setSearchSpaceSize(size) {
-    if (window.vaow.Validator.isPositiveNumber(size)) {
+    if (window.vaow.util.Validator.isPositiveNumber(size)) {
       this.searchSpaceSize = size;
     } else {
       throw Locale.Error.InvalidArgSize;
@@ -66,11 +66,11 @@ export class BruteForceAnalysis extends AnalysisBase {
   }
 
   validateCrackTime(time, attackSpeed) {
-    if (!window.vaow.Validator.isPositiveNumber(time)) {
+    if (!window.vaow.util.Validator.isPositiveNumber(time)) {
       throw Locale.Error.InvalidArgTime;
     }
 
-    if (!window.vaow.Validator.isPositiveNumber(attackSpeed)) {
+    if (!window.vaow.util.Validator.isPositiveNumber(attackSpeed)) {
       throw Locale.Error.InvalidArgAttackSpeed;
     }
   }

@@ -21,7 +21,7 @@ export class AggregateCharStats extends CharStats {
   }
 
   addStats(charStats) {
-    if (window.vaow.Validator.isDefinedAndNotNull(charStats)) {
+    if (window.vaow.util.Validator.isDefinedAndNotNull(charStats)) {
       this.subStats.push(charStats);
       this.updateAggregate(charStats);
     } else {

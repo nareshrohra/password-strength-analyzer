@@ -23,7 +23,7 @@ export class CompositeAnalyzer {
   }
 
   addAnalyzer(analyzer) {
-    if (window.vaow.Validator.isDefinedAndNotNull(analyzer)) {
+    if (window.vaow.util.Validator.isDefinedAndNotNull(analyzer)) {
       this.analyzers.push(analyzer);
     } else {
       throw Locale.Error.InvalidArgAnalyzer;
@@ -40,11 +40,11 @@ export class CompositeAnalyzer {
   }
 
   validateAnalysisInput(password, options) {
-    if (!window.vaow.Validator.isDefinedAndNotNull(password)) {
+    if (!window.vaow.util.Validator.isDefinedAndNotNull(password)) {
       throw Locale.Error.InvalidArgPassword;
     }
 
-    if (!window.vaow.Validator.isDefinedAndNotNull(options)) {
+    if (!window.vaow.util.Validator.isDefinedAndNotNull(options)) {
       throw Locale.Error.InvalidArgOptions;
     }
   }

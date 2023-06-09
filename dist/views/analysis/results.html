@@ -1,0 +1,31 @@
+<template>
+  <section class="au-animate" for="results" if.bind="hasAnalysis">
+    <h6>Analysis results</h6>
+    <article>
+      <table class="analysis-result-table" role="result table" repeat.for="analysis of model.getAllAnalyses()">
+        <thead>
+          <th class="analysis-name" colspan="2">
+            ${analysis.getName()}
+          </th>
+        </thead>
+        <tbody>
+          <tr repeat.for="item of analysis.getAllItems()">
+            <td class="analysis-item-name">
+              <div>${item.getName()}</div>
+              <div show.bind="item.hasNameHint()">
+                <span class="radius secondary label">${item.getNameHint()}</span>
+              </div>
+            </td>
+            <td class="analysis-item-value">
+              <div>
+                <h6>${item.getText()}</h6>
+              </div>
+              <div show.bind="item.hasTextHint()">
+                <span class="radius secondary label">${item.getTextHint()}</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+</template>

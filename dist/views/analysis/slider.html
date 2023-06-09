@@ -1,0 +1,19 @@
+<template>
+  <div class="row">
+    <div class="large-12 columns">
+      <label for="${id}Label">${label}</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-8 medium-10 columns">
+      <div id="${id}" class="range-slider" data-slider="${value}" data-options="display_selector: #${id}Display; start: ${min}; end: ${max}; step: ${step};">
+        <span class="range-slider-handle" aria-labelledby="${id}Label" role="slider"></span>
+        <span class="range-slider-active-segment"></span>
+        <input type="hidden">
+      </div>
+    </div>
+    <div class="small-4 medium-2 columns sliderValueDisplay">
+      <span id="${id}Display"></span>
+    </div>
+  </div>
+</template>

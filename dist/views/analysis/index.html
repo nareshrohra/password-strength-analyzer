@@ -1,0 +1,17 @@
+<template>
+  <require from='./options'></require>
+  <require from='./results'></require>
+  <div class="row">
+    <div class="body large-12 columns">
+      <h3>Password Strength Analyzer</h3>
+      <options model.two-way="options" change.call="optionsChanged()"></options>
+      <section class="au-animate" for="password">
+        <h6>Password</h6>
+        <article>
+          <input type="text" placeholder="Enter password" value.bind="password" keyup.delegate="passwordChanged()"/>
+        </article>
+      </section>
+      <results model.bind="results"></results>
+    </div>
+  </div>
+</template>
